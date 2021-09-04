@@ -10,3 +10,8 @@ auto-tests = true
 auto-examples = true
 [install]
 library = false
+
+[dependencies]
+[dependencies.functional]
+git = "https://github.com/wavebitscientific/functional-fortran"
+
