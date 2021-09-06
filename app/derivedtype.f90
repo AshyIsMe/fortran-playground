@@ -15,14 +15,17 @@ module mod_foo
     class(Foo), intent(inout) :: self
     character, intent(out) :: c
 
-    ! app/derivedtype.f90:18:4:
-    ! 
-    !    18 |     c = self % source(self % current)
-    !       |    1
-    ! Error: Unclassifiable statement at (1)
-    ! TODO: What's the correct syntax to reference a member array like this?
+    character(10) :: s
+    integer :: i
 
-    c = self % source(self % current)
+    ! TODO: What's the correct syntax to reference a member array like this?
+    !c = self % source(self % current)
+
+    s = self % source
+    i = self % current
+    ! TODO: Even this throws the same error
+    c = s(i)
+
     self % current = self % current + 1
 
     end subroutine advanceChar
